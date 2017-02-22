@@ -1,3 +1,19 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
+    <form>
+        <legend>Search iTunes</legend>
+
+        <div class="form-group">
+            <input type="search"
+                   class="form-control"
+                   placeholder="Search"
+                   #search>
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+          (click)="doSearch(search.value)">Submit
+        </button>
+    </form>
+</div>
+
