@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SearchService } from './search.service';
 
 @Component({
     selector: 'i-root',
@@ -8,11 +7,6 @@ import { SearchService } from './search.service';
 })
 export class AppComponent {
 
-    constructor(private ituneSS:SearchService){}
-
-    doSearch(term:string){
-        this.ituneSS.search(term);
-    }
 
 
 

@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { SearchService } from './search.service';
+import { SearchService } from './itunes/search.service';
+import { ItunesComponent } from './itunes/itunes.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ItunesComponent
   ],
   imports: [
     BrowserModule,
