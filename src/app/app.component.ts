@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Http } from '@angular/http';
+import { SearchService } from './search.service';
 
 @Component({
     selector: 'i-root',
@@ -8,18 +8,12 @@ import { Http } from '@angular/http';
 })
 export class AppComponent {
 
-    apiRoot:string = 'https://itunes.apple.com/search';
-    results:Object[];
-    loading:boolean;
+    constructor(private ituneSS:SearchService){}
 
-    constructor(private http:Http) {
-        this.results = [];
-        this.loading = false;
+    doSearch(term:string){
+        this.ituneSS.search(term);
     }
 
-    search(term:string) {
-
-    }
 
 
 }
