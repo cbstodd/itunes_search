@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { JsonpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { SearchService } from './itunes/search.service';
 import { ItunesComponent } from './itunes/itunes.component';
@@ -15,7 +15,7 @@ import 'rxjs/Rx.js';
     imports: [
         BrowserModule,
         FormsModule,
-        HttpModule,
+        JsonpModule,
         ReactiveFormsModule,
 
     ],

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Jsonp } from '@angular/http';
 import { SearchItem } from './search-item';
-import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 
 
@@ -12,16 +11,16 @@ export class SearchService {
     results:SearchItem[];
     loading:boolean;
 
-    constructor(private http:Http) {
+    constructor(private jsonp:Jsonp) {
         this.results = [];
         this.loading = false;
     }
 
-    search(term:string):Observable<SearchItem[]> {
-        let apiURL = `${this.apiRoot}?term=${term}&media=music&limit=20`;
-        return this.http.get(apiURL)
-                   .map(resp => {
-                       let results = resp.json().results.map(item => {
+    search(term:string) {
+        let apiURL = `${this.apiRoot}?term=${term}&media=music&limit=20&callback=JSONP_CALLBACK`;
+        return this.jsonp.request(apiURL)
+                   .map(res => {
+                       return res.json().results.map(item => {
                            return new SearchItem(
                                item.artistName,
                                item.trackName,
@@ -30,8 +29,8 @@ export class SearchService {
                                item.artistId
                            );
                        });
-                       return results;
                    });
+
 
     }
 

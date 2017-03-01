@@ -3,10 +3,11 @@ import { SearchService } from './search.service';
 import { SearchItem } from './search-item';
 import { Observable } from 'rxjs/Rx';
 import { FormControl } from '@angular/forms';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/debounce';
-import 'rxjs/add/operator/distinct';
+import 'rxjs/add/operator/map.js';
+import 'rxjs/add/operator/debounce.js';
+import 'rxjs/add/operator/distinct.js';
 import 'rxjs/add/operator/switchMap.js';
+import 'rxjs/add/operator/do.js';
 
 @Component({
     selector: 'i-itunes',
@@ -24,11 +25,12 @@ export class ItunesComponent implements OnInit {
 
     ngOnInit() {
         this.searchField = new FormControl();
-        this.searchField.valueChanges
-            .debounceTime(400)
-            .distinctUntilChanged()
-            .switchMap(term => this.ituneSS.search(term))
-            .subscribe(other => console.log(other));
+        this.results     = this.searchField.valueChanges
+                               .debounceTime(400)
+                               .distinctUntilChanged()
+                               .do(_ => this.loading = true)
+                               .switchMap(term => this.ituneSS.search(term))
+                               .do(_ => this.loading = false)
     }
 
 
