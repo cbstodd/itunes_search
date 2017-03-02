@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Jsonp } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { SearchItem } from './search-item';
 
@@ -10,15 +10,15 @@ export class SearchService {
     results:SearchItem[];
     loading:boolean;
 
-    constructor(private http:Http) {
+    constructor(private jsonp:Jsonp) {
         this.results = [];
         this.loading = false;
     }
 
     search(term:string) {
         let promise = new Promise((resolve, reject) => {
-            let apiURL = `${this.apiRoot}?term=${term}&media=music&limit=20`;
-            this.http.get(apiURL)
+            let apiURL = `${this.apiRoot}?term=${term}&media=music&limit=20&callback=JSONP_CALLBACK`;
+            return this.jsonp.request(apiURL)
                 .toPromise()
                 .then(
                     resp => {

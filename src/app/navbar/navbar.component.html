@@ -1,12 +1,12 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#">iTunes Search</a>
+        <a class="navbar-brand" [routerLink]="['home']">iTunes Search</a>
         <ul class="nav navbar-nav">
-            <li class="active">
-                <a href="#">Home</a>
+            <li [routerLinkActive]="['active']">
+                <a [routerLink]="['home']">Home</a>
             </li>
-            <li>
-                <a href="#">Link</a>
+            <li [routerLinkActive]="['active']">
+                <a [routerLink]="['search']">Search</a>
             </li>
         </ul>
     </div>
