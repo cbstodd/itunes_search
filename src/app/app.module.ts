@@ -6,11 +6,19 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { SearchService } from './itunes/search.service';
 import { ItunesComponent } from './itunes/itunes.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { Routes } from '@angular/router';
+
+const routes:Routes = [
+    
+]
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ItunesComponent
+    ItunesComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
