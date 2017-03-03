@@ -6,31 +6,14 @@ import { AppComponent } from './app.component';
 import { SearchService } from './itunes/search.service';
 import { ItunesComponent } from './itunes/itunes.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ArtistComponent } from './artist/artist.component';
 import { ArtistTrackListComponent } from './artist-track-list/artist-track-list.component';
 import { ArtistAlbumListComponent } from './artist-album-list/artist-album-list.component';
-
-// ROUTES
-const routes:Routes = [
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent },
-    { path: 'search', component: ItunesComponent },
-    {
-        path: 'artist/:artistId',  // :artistId comes from the search-item.ts model
-        component: ArtistComponent,
-        children: [
-            { path: '', redirectTo: 'tracks' },
-            { path: 'tracks', component: ArtistTrackListComponent },
-            { path: 'albums', component: ArtistAlbumListComponent }
-        ]
-    },
-    { path: 'find', redirectTo: 'search' },
-    { path: 'home/search', redirectTo: 'search' },
-    { path: '**', component: HomeComponent }
-];
-
+import { AuthGuardService } from './auth-guard.service';
+import { routing } from './app.routes';
+import { UserService } from './user.service';
+import { OnlyLoggedInUsersGuardService } from './only-logged-in-users-guard.service';
 
 @NgModule({
     declarations: [
@@ -46,9 +29,9 @@ const routes:Routes = [
         BrowserModule,
         FormsModule,
         JsonpModule,
-        RouterModule.forRoot(routes, { useHash: true }) // enables hash #/ routing
+        routing,
     ],
-    providers: [SearchService],
+    providers: [SearchService, AuthGuardService, UserService, OnlyLoggedInUsersGuardService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
