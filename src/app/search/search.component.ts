@@ -7,34 +7,34 @@ import { ActivatedRoute, Router } from '@angular/router';
     templateUrl: './search.component.html',
     styleUrls: ['./search.component.css']
 })
-export class SearchComponent {
 
+export class SearchComponent {
     private loading:boolean = false;
 
     constructor(
-        private ituneSS:SearchService,
+        private itunes:SearchService,
         private route:ActivatedRoute,
-        private router:Router  // Routing
+        private router:Router
     ) {
-        // Prevents returned string from returning 'undefined'
         this.route.params.subscribe(params => {
+            console.log(params);
             if (params['term']) {
-                this.doSearch((params['term']))
+                this.doSearch(params['term'])
             }
         });
     }
 
-    onSearch(term:string) {
-        this.router.navigate(['search', { term: term }]);
-
-
-    }
-
     doSearch(term:string) {
         this.loading = true;
-        // When .then promise is resolved then switch to false.
-        this.ituneSS.search(term).then(_ => this.loading = false)
+        this.itunes.search(term).then(_ => this.loading = false)
     }
-    
 
+    onSearch(term:string) {
+        this.router.navigate(['search', { term: term }]);
+    }
+
+    canDeactivate() {
+        return this.itunes.results.length > 0;
+    }
 }
+
