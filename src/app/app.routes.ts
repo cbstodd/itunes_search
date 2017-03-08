@@ -29,4 +29,4 @@ const routes:Routes = [
     { path: '**', component: HomeComponent }
 ];
 
-export const routing:ModuleWithProviders = RouterModule.forRoot(routes, { useHash: true });
+export const routing:ModuleWithProviders = RouterModule.forRoot(routes);
