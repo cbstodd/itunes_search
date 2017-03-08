@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JsonpModule } from '@angular/http';
 import { AppComponent } from './app.component';
-import { SearchService } from './itunes/search.service';
 import 'rxjs/Rx.js';
 import { SearchService } from './search/search.service';
 import { SearchComponent } from './search/search.component';
