@@ -33,7 +33,7 @@ export class SearchComponent {
     doSearch(term:string) {
         this.loading = true;
         // When .then promise is resolved then switch to false.
-        this.ituneSS.search(term).then(() => this.loading = false);
+        this.ituneSS.search(term).then(_ => this.loading = false)
     }
     
 
