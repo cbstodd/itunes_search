@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { Jsonp } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { SearchItem } from './search-item';
-import 'rxjs/add/operator/map';
-
 
 @Injectable()
 export class SearchService {
@@ -18,20 +16,31 @@ export class SearchService {
     }
 
     search(term:string) {
+        let promise = new Promise((resolve, reject) => {
+            let apiURL = `${this.apiRoot}?term=${term}&media=music&limit=20&callback=JSONP_CALLBACK`;
+            return this.jsonp.request(apiURL)
+                       .toPromise()
+                       .then(
+                           resp => {
+                               console.log(resp.json());
+                               this.results = resp.json().results.map(item => {
+                                   return new SearchItem(
+                                       item.artistName,
+                                       item.trackName,
+                                       item.collectionViewUrl,
+                                       item.artworkUrl60,
+                                       item.artistId
+                                   )
+                               });
+                               resolve();
+                           },
+                           msg => {
+                               reject();
+                           }
+                       )
 
-        let apiURL = `${this.apiRoot}?term=${term}&media=music&limit=20&callback=JSONP_CALLBACK`;
-        return this.jsonp.request(apiURL)
-                   .map(res => {
-                       return res.json().results.map(item => {
-                           return new SearchItem(
-                               item.artistName,
-                               item.trackName,
-                               item.trackViewUrl,
-                               item.artworkUrl60,
-                               item.artistId
-                           );
-                       });
-                   });
+        });
+        return promise;
 
     }
 

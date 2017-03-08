@@ -15,6 +15,7 @@ import { routing } from './app.routes';
 import { UserService } from './user.service';
 import { OnlyLoggedInUsersGuardService } from './only-logged-in-users-guard.service';
 import { AlwaysAuthChildrenGuardService } from './always-auth-children-guard.service';
+import 'rxjs/Rx';
 
 @NgModule({
     declarations: [

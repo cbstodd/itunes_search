@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Jsonp } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
+import 'rxjs/add/operator/toPromise';
 
 @Component({
     selector: 'i-artist',
