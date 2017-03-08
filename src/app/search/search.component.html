@@ -8,13 +8,11 @@
                    #search>
         </div>
 
-
         <button
           type="submit"
           class="btn btn-danger"
           (click)="onSearch(search.value)">Submit
         </button>
-
     </form>
 
     <hr>
@@ -23,20 +21,20 @@
         <i class="fa fa-pulse fa-spinner fa-3x fa-fw"></i> <span class="sr-only">Loading...</span>
     </p>
 
-    <div class="col-sm-6" *ngFor="let track of results | async">
+    <div class="col-sm-6" *ngFor="let track of itunes.results">
         <div class="list-group">
             <a [routerLink]="['/artist', track.artistId]" class="list-group-item">
                 <img [src]="track.thumbnail" alt="{{track.artistName}}">
-
                 <span class="text-right">
                     <h4 class="list-group-item-heading">{{ track.track }}</h4>
                     <p class="list-group-item-text">{{ track.artistName }}</p>
                 </span>
-
             </a>
         </div>
     </div>
 
 
-
 </div>
+
+
+
