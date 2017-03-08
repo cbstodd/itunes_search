@@ -1,73 +1,43 @@
-<!--<div class="container">-->
-    <!--<h3>iTunes Search</h3>-->
-    <!--<form>-->
-        <!--<div class="form-group">-->
-            <!--<input type="search"-->
-                   <!--class="form-control"-->
-                   <!--placeholder="Search"-->
-                   <!--#search>-->
-        <!--</div>-->
+<div class="container">
+    <h3>iTunes Search</h3>
+    <form>
+        <div class="form-group">
+            <input type="search"
+                   class="form-control"
+                   placeholder="Search"
+                   #search>
+        </div>
 
 
-        <!--<button-->
-          <!--type="submit"-->
-          <!--class="btn btn-danger"-->
-          <!--(click)="onSearch(search.value)">Submit-->
-        <!--</button>-->
+        <button
+          type="submit"
+          class="btn btn-danger"
+          (click)="onSearch(search.value)">Submit
+        </button>
 
-    <!--</form>-->
+    </form>
 
-    <!--<hr>-->
+    <hr>
 
-    <!--<p class="loading" *ngIf="loading">-->
-        <!--<i class="fa fa-pulse fa-spinner fa-3x fa-fw"></i> <span class="sr-only">Loading...</span>-->
-    <!--</p>-->
+    <p class="loading" *ngIf="loading">
+        <i class="fa fa-pulse fa-spinner fa-3x fa-fw"></i> <span class="sr-only">Loading...</span>
+    </p>
 
-    <!--<div class="col-sm-6" *ngFor="let track of results | async">-->
-        <!--<div class="list-group">-->
-            <!--<a [routerLink]="['/artist', track.artistId]" class="list-group-item">-->
-                <!--<img [src]="track.thumbnail" alt="{{track.artistName}}">-->
+    <div class="col-sm-6" *ngFor="let track of results | async">
+        <div class="list-group">
+            <a [routerLink]="['/artist', track.artistId]" class="list-group-item">
+                <img [src]="track.thumbnail" alt="{{track.artistName}}">
 
-                <!--<span class="text-right">-->
-                    <!--<h4 class="list-group-item-heading">{{ track.track }}</h4>-->
-                    <!--<p class="list-group-item-text">{{ track.artistName }}</p>-->
-                <!--</span>-->
+                <span class="text-right">
+                    <h4 class="list-group-item-heading">{{ track.track }}</h4>
+                    <p class="list-group-item-text">{{ track.artistName }}</p>
+                </span>
 
-            <!--</a>-->
-        <!--</div>-->
-    <!--</div>-->
-
-
-
-<!--</div>-->
+            </a>
+        </div>
+    </div>
 
 
-<form class="form-inline">
-<div class="form-group">
-    <input type="search"
-           class="form-control"
-           placeholder="Enter search string"
-           #search>
+
 </div>
-<button type="button"
-        class="btn btn-primary"
-        (click)="onSearch(search.value)">
-    Search
-</button>
-</form>
-
-<hr />
-
-<div class="text-center">
-    <p class="lead"
-       *ngIf="loading">Loading...</p>
-</div>
-
-<div class="list-group">
-    <a [routerLink]="['/artist', track.artistId]"
-       class="list-group-item list-group-item-action"
-       *ngFor="let track of itunes.results">
-        <img src="{{track.thumbnail}}">
-        {{ track.name }} <span class="text-muted">by</span> {{ track.artist }}
-    </a>
-</div>
+ß

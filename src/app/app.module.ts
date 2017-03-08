@@ -1,9 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { JsonpModule } from '@angular/http';
 import { AppComponent } from './app.component';
-import 'rxjs/Rx.js';
 import { SearchService } from './search/search.service';
 import { SearchComponent } from './search/search.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -12,10 +11,10 @@ import { ArtistComponent } from './artist/artist.component';
 import { ArtistTrackListComponent } from './artist-track-list/artist-track-list.component';
 import { ArtistAlbumListComponent } from './artist-album-list/artist-album-list.component';
 import { AlwaysAuthGuardService } from './always-auth-guard.service';
+import { routing } from './app.routes';
 import { UserService } from './user.service';
 import { OnlyLoggedInUsersGuardService } from './only-logged-in-users-guard.service';
 import { AlwaysAuthChildrenGuardService } from './always-auth-children-guard.service';
-
 
 @NgModule({
     declarations: [
@@ -26,14 +25,12 @@ import { AlwaysAuthChildrenGuardService } from './always-auth-children-guard.ser
         ArtistComponent,
         ArtistTrackListComponent,
         ArtistAlbumListComponent
-
     ],
     imports: [
         BrowserModule,
         FormsModule,
         JsonpModule,
-        ReactiveFormsModule,
-
+        routing,
     ],
     providers: [
         SearchService,
