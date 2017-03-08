@@ -1,0 +1,13 @@
+<div class="col-sm-6" *ngFor="let track of tracks">
+    <div class="list-group">
+        <a [routerLink]="['/artist', track.artistId]" class="list-group-item">
+
+            <img [src]="track.artworkUrl60" alt="{{track.artistName}}">
+
+            <div class="text-right">
+                <h4 class="list-group-item-heading">{{ track.trackName }}</h4>
+                <p class="list-group-item-text">{{ track.artistName }}</p>
+            </div>
+        </a>
+    </div>
+</div>

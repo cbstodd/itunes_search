@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchService } from './search.service';
 import { SearchItem } from './search-item';
 import { Observable } from 'rxjs/Rx';
 import { FormControl } from '@angular/forms';
@@ -8,6 +7,8 @@ import 'rxjs/add/operator/debounce.js';
 import 'rxjs/add/operator/distinct.js';
 import 'rxjs/add/operator/switchMap.js';
 import 'rxjs/add/operator/do.js';
+import { SearchItem } from '../search/search-item';
+import { SearchService } from '../search/search.service';
 
 @Component({
     selector: 'i-itunes',

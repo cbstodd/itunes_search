@@ -7,6 +7,14 @@
                    placeholder="Search"
                    [formControl]="searchField">
         </div>
+
+
+        <button
+          type="submit"
+          class="btn btn-danger"
+          (click)="onSearch(search.value)">Submit
+        </button>
+
     </form>
 
     <hr>
@@ -17,10 +25,14 @@
 
     <div class="col-sm-6" *ngFor="let track of results | async">
         <div class="list-group">
-            <a href="{{track.url}}" class="list-group-item active" target="_blank">
+            <a [routerLink]="['/artist', track.artistId]" class="list-group-item">
                 <img [src]="track.thumbnail" alt="{{track.artistName}}">
-                <h4 class="list-group-item-heading">{{ track.trackName }}</h4>
-                <p class="list-group-item-text">{{ track.artistName }}</p>
+
+                <span class="text-right">
+                    <h4 class="list-group-item-heading">{{ track.track }}</h4>
+                    <p class="list-group-item-text">{{ track.artistName }}</p>
+                </span>
+
             </a>
         </div>
     </div>

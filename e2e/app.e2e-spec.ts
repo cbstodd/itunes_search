@@ -1,10 +1,10 @@
-import { ItunesApiPage } from './app.po';
+import { SearchApiPage } from './app.po';
 
-describe('itunes-api App', function() {
-  let page: ItunesApiPage;
+describe('search-api App', function() {
+  let page: SearchApiPage;
 
   beforeEach(() => {
-    page = new ItunesApiPage();
+    page = new SearchApiPage();
   });
 
   it('should display message saying app works', () => {

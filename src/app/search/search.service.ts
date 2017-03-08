@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Jsonp } from '@angular/http';
+import 'rxjs/add/operator/toPromise';
 import { SearchItem } from './search-item';
 import 'rxjs/add/operator/map';
 
@@ -17,6 +18,7 @@ export class SearchService {
     }
 
     search(term:string) {
+
         let apiURL = `${this.apiRoot}?term=${term}&media=music&limit=20&callback=JSONP_CALLBACK`;
         return this.jsonp.request(apiURL)
                    .map(res => {
@@ -30,7 +32,6 @@ export class SearchService {
                            );
                        });
                    });
-
 
     }
 
