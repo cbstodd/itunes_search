@@ -1,0 +1,11 @@
+<h3>Music videos</h3>
+
+<ul class="list-group" *ngFor="let video of videos">
+    <a target="_blank" href="{{video.previewUrl}}">
+        <li class="list-group-item">
+            <img src="{{video.artworkUrl100}}">
+            <span class="video-name">{{ video.trackName }}</span>
+        </li>
+    </a>
+</ul>
+

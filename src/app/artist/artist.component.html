@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
-            <h1>{{ artist?.artistName }}</h1>
+            <h1>{{artist?.artistName}} <span class="badge">{{artist?.primaryGenreName}}</span></h1>
         </div>
 
         <div class="col-sm-6">
@@ -12,6 +12,9 @@
                 <a [routerLink]="['./albums']"
                    type="button"
                    class="list-group-item list-group-item-danger text-center">Albums</a>
+                <a [routerLink]="['./videos']"
+                   type="button"
+                   class="list-group-item list-group-item-danger text-center">Music videos</a>
             </div>
         </div>
     </div>

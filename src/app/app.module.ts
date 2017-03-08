@@ -16,6 +16,7 @@ import { UserService } from './user.service';
 import { OnlyLoggedInUsersGuardService } from './only-logged-in-users-guard.service';
 import { AlwaysAuthChildrenGuardService } from './always-auth-children-guard.service';
 import 'rxjs/Rx';
+import { ArtistMusicVideoListComponent } from './artist-music-video-list/artist-music-video-list.component';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import 'rxjs/Rx';
         HomeComponent,
         ArtistComponent,
         ArtistTrackListComponent,
-        ArtistAlbumListComponent
+        ArtistAlbumListComponent,
+        ArtistMusicVideoListComponent
     ],
     imports: [
         BrowserModule,

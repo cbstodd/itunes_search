@@ -8,6 +8,7 @@ import { ModuleWithProviders } from '@angular/core';
 import { AlwaysAuthGuardService } from './always-auth-guard.service';
 import { OnlyLoggedInUsersGuardService } from './only-logged-in-users-guard.service';
 import { AlwaysAuthChildrenGuardService } from './always-auth-children-guard.service';
+import { ArtistMusicVideoListComponent } from './artist-music-video-list/artist-music-video-list.component';
 
 const routes:Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -21,7 +22,8 @@ const routes:Routes = [
         children: [
             { path: '', redirectTo: 'tracks' },
             { path: 'tracks', component: ArtistTrackListComponent },
-            { path: 'albums', component: ArtistAlbumListComponent }
+            { path: 'albums', component: ArtistAlbumListComponent },
+            { path: 'videos', component: ArtistMusicVideoListComponent }
         ]
     },
     { path: 'find', redirectTo: 'search' },

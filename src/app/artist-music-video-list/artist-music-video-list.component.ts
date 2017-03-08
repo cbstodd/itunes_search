@@ -3,22 +3,22 @@ import { Jsonp } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'i-artist-album-list',
-  templateUrl: './artist-album-list.component.html',
-  styleUrls: ['./artist-album-list.component.css']
+  selector: 'i-artist-music-video-list',
+  templateUrl: './artist-music-video-list.component.html',
+  styleUrls: ['./artist-music-video-list.component.css']
 })
-export class ArtistAlbumListComponent {
+export class ArtistMusicVideoListComponent {
 
-    private albums: any[];
+    private videos: any[];
 
     constructor(private jsonp: Jsonp,
                 private route: ActivatedRoute) {
         this.route.parent.params.subscribe(params => {
-            this.jsonp.request(`https://itunes.apple.com/lookup?id=${params['artistId']}&entity=album&callback=JSONP_CALLBACK`)
+            this.jsonp.request(`https://itunes.apple.com/lookup?id=${params['artistId']}&entity=musicVideo&callback=JSONP_CALLBACK`)
                 .toPromise()
                 .then(res => {
                     console.log(res.json());
-                    this.albums = res.json().results.slice(1);
+                    this.videos = res.json().results.slice(1);
                 });
         });
     }
