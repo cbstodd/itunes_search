@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Jsonp } from '@angular/http';
+import { Jsonp } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { SearchItem } from './search-item';
 

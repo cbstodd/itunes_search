@@ -1,16 +1,19 @@
 <div class="container">
     <div class="row">
-        <div class="col-sm-2">
-            <h1>Artist</h1>
+        <div class="col-sm-6">
+            <h1>{{ artist?.artistName }}</h1>
         </div>
 
-        <div class="col-sm-2">
+        <div class="col-sm-6">
             <div class="list-group">
-                <a [routerLink]="['./tracks']" type="button" class="list-group-item">Tracks</a>
-                <a [routerLink]="['./albums']" type="button" class="list-group-item">Albums</a>
+                <a [routerLink]="['./tracks']"
+                   type="button"
+                   class="list-group-item list-group-item-danger text-center">Tracks</a>
+                <a [routerLink]="['./albums']"
+                   type="button"
+                   class="list-group-item list-group-item-danger text-center">Albums</a>
             </div>
         </div>
-        <div class="col-sm-8"></div>
     </div>
     <hr>
 

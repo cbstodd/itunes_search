@@ -3,11 +3,11 @@ import { SearchService } from './search.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-    selector: 'i-itunes',
-    templateUrl: './itunes.component.html',
-    styleUrls: ['./itunes.component.css']
+    selector: 'i-search',
+    templateUrl: './search.component.html',
+    styleUrls: ['./search.component.css']
 })
-export class ItunesComponent {
+export class SearchComponent {
 
     private loading:boolean = false;
 
@@ -30,13 +30,11 @@ export class ItunesComponent {
 
     }
 
-    doSearch(
-        term:string
-    ) {
+    doSearch(term:string) {
         this.loading = true;
         // When .then promise is resolved then switch to false.
         this.ituneSS.search(term).then(() => this.loading = false);
     }
-
+    
 
 }

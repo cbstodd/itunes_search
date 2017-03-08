@@ -3,7 +3,8 @@
 export class UserService {
 
   isLoggedIn():boolean {
-      return false;
+      //TODO: Need to switch back to false in production
+      return true;
   }
 
 }

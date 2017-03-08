@@ -13,6 +13,7 @@ export class OnlyLoggedInUsersGuardService implements CanActivate {
         if (this.userService.isLoggedIn()) {
             return true;
         } else {
+            // TODO: Should redirect to a login page.
             window.alert("You don't have permission to view this page.");
             return false;
         }

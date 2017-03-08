@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
-import { AuthGuardService } from './auth-guard.service';
+import { AuthGuardService } from './always-auth-guard.service';
 
 describe('Service: AuthGuard', () => {
   beforeEach(() => {
